@@ -7,22 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f7efe7;
+      --bg: linear-gradient(180deg, #b7ddff 0%, #eaf6ff 60%, #ffffff 100%);
       --card:#ffffff;
-      --primary:#c58f6a;
-      --text:#4a3f35;
-      --soft:#e8d9cc;
+      --primary:#4fa3d1;
+      --text:#2f4f63;
+      --soft:#d6ecfa;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);}    
+    body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;position:relative;}    
 
-    header{background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05);}    
+    header{position:relative;z-index:2;background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05);}    
     header h1{font-family:'Playfair Display',serif;font-size:24px;color:var(--primary);}    
     nav a{margin-left:20px;text-decoration:none;color:var(--text);font-weight:500;}    
     nav a:hover{color:var(--primary);}    
 
     /* LIMITADOR DE LARGURA */
-    section, .hero{
+    section, .hero{position:relative;z-index:2;
       max-width:1100px;
       margin:0 auto;
       padding:60px 24px;
@@ -49,17 +49,33 @@
 
     .timeline{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:24px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:48px;
+      padding-top:20px;
     }
 
     .card{
       background:var(--card);
-      padding:24px;
-      border-radius:18px;
+      padding:28px 26px;
+      border-radius:70px;
       text-align:center;
-      box-shadow:0 6px 15px rgba(0,0,0,.08);
+      box-shadow:0 10px 25px rgba(79,163,209,.25);
+      position:relative;
+      max-width:340px;
+      margin:0 auto;
     }
+    .card::before,.card::after{
+      content:'';
+      position:absolute;
+      background:inherit;
+      width:55%;
+      height:55%;
+      border-radius:50%;
+      top:-28%;
+      z-index:-1;
+    }
+    .card::before{left:10%;}
+    .card::after{right:10%;}
 
     button{
       background:var(--primary);
@@ -104,7 +120,7 @@
       border-radius:18px;
     }
 
-    footer{
+    footer{position:relative;z-index:2;
       text-align:center;
       padding:40px 20px;
       font-size:14px;
@@ -116,9 +132,17 @@
       .hero img{max-height:320px;}
       .hero-text h2{font-size:34px;}
     }
-  </style>
+  
+
+</style>
 </head>
 <body>
+
+  <div class="cloud medium move" style="top:25%;left:-30%;animation-duration:80s;"></div>
+  <div class="cloud large move" style="top:45%;left:-40%;animation-duration:100s;"></div>
+  <div class="cloud-heart move" style="top:18%;left:-20%;animation-duration:90s;"></div>
+  <div class="cloud-heart move" style="top:60%;left:-30%;animation-duration:110s;opacity:.4;"></div>
+</div>
 
 <header>
   <h1>Nossa Jornada</h1>
@@ -139,7 +163,7 @@
       <p id="contador" style="font-size:18px;font-weight:600;"></p>
     </div>
   </div>
-  <img src="imagens/nos1.jpg" alt="Nós dois">
+  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Casal">
 </section>
 
 <section id="historia">
@@ -177,10 +201,10 @@
 <section id="galeria">
   <h2 class="section-title">Galeria de Momentos</h2>
   <div class="gallery">
-    <img src="imagens/nos1.jpg" />
-    <img src="imagens/nos2.jpg" />
-    <img src="imagens/nos3.jpg" />
-    <img src="imagens/nos4.jpg" />
+    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" />
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
+    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce" />
   </div>
 </section>
 
@@ -191,10 +215,8 @@
 
 <audio id="musica" autoplay loop>
   <source src="musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
 </audio>
-
-  <button onclick="tocarMusica()">🎵 Tocar nossa música</button>
-
 
 <script>
   const inicio = new Date(2024, 11, 22, 22, 30, 0);
@@ -246,6 +268,3 @@
 
 </body>
 </html>
-
-
-
