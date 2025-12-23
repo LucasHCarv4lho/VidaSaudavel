@@ -1,181 +1,246 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vida Saudável</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nossa Jornada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root{
+      --bg:#f7efe7;
+      --card:#ffffff;
+      --primary:#c58f6a;
+      --text:#4a3f35;
+      --soft:#e8d9cc;
     }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom right, #f0fff4, #ffffff);
-      color: #333;
-      scroll-behavior: smooth;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);}    
+
+    header{background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05);}    
+    header h1{font-family:'Playfair Display',serif;font-size:24px;color:var(--primary);}    
+    nav a{margin-left:20px;text-decoration:none;color:var(--text);font-weight:500;}    
+    nav a:hover{color:var(--primary);}    
+
+    /* LIMITADOR DE LARGURA */
+    section, .hero{
+      max-width:1100px;
+      margin:0 auto;
+      padding:60px 24px;
     }
-    header {
-      background-color: #2e7d32;
-      color: white;
-      padding: 20px 20px;
-      text-align: center;
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
     }
-    header img {
-      max-width: 180px;
-      height: auto;
+
+    .hero img{
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      border-radius:20px;
     }
-    nav {
-      background-color: #a5d6a7;
-      padding: 15px 20px;
-      text-align: center;
-      font-size: 1rem;
+
+    .hero-text h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:16px;}
+    .hero-text p{max-width:420px;line-height:1.6;}
+
+    .section-title{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:32px;text-align:center;}    
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:24px;
     }
-    nav p {
-      margin: 0;
-      color: #1b5e20;
-      font-weight: bold;
+
+    .card{
+      background:var(--card);
+      padding:24px;
+      border-radius:18px;
+      text-align:center;
+      box-shadow:0 6px 15px rgba(0,0,0,.08);
     }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+
+    button{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      padding:12px 26px;
+      border-radius:25px;
+      cursor:pointer;
     }
-    section h2 {
-      color: #2e7d32;
-      font-size: 2rem;
-      margin-bottom: 15px;
+
+    .slider{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      margin-top:20px;
     }
-    section p, section li {
-      font-size: 1.1rem;
-      line-height: 1.7;
+
+    .slide{
+      background:var(--card);
+      padding:26px 32px;
+      border-radius:20px;
+      min-width:320px;
+      max-width:420px;
+      text-align:center;
+      box-shadow:0 6px 15px rgba(0,0,0,.08);
     }
-    .image {
-      width: 100%;
-      max-width: 900px;
-      margin: 30px auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+
+    .arrow{font-size:20px;background:none;color:var(--primary);}
+
+    /* GALERIA */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
     }
-    footer {
-      background-color: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 20px;
+
+    .gallery img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:18px;
     }
-    ul {
-      padding-left: 20px;
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      font-size:14px;
+      opacity:.9;
     }
-    hr {
-      margin: 40px 0;
-      border: none;
-      border-top: 2px solid #ccc;
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .hero img{max-height:320px;}
+      .hero-text h2{font-size:34px;}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="VidaSaudavel.jpg" alt="Logo Vida Saudável">
+  <h1>Nossa Jornada</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#historia">História</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#mensagens">Mensagens</a>
+  </nav>
 </header>
 
-<nav>
-  <p>Transforme sua rotina com hábitos que fazem bem ao corpo e à mente</p>
-</nav>
-
-<section id="introducao">
-  <h2>Bem-Estar e Saúde: Seu Portal para uma Vida Plena</h2>
-  <img src="PessoaSorrindoESaudavel.jpg" class="image" alt="Pessoa sorrindo e saudável">
-  <p><em>Bem-vindo ao nosso site! Aqui, seu bem-estar é nossa prioridade.</em></p>
-  <p>Nosso objetivo é fornecer informações confiáveis, dicas práticas e inspiração para ajudá-lo a viver uma vida mais saudável e equilibrada. Acreditamos que o bem-estar envolve corpo, mente e alma, e estamos aqui para guiá-lo nessa jornada.</p>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Nosso Amor,<br>Nossa Jornada</h2>
+    <p>Um cantinho especial para guardar cada memória, cada sorriso e todo o amor que construímos juntos.</p>
+    <div class="card" style="margin-top:20px;">
+      <h3>Estamos juntos há</h3>
+      <p id="contador" style="font-size:18px;font-weight:600;"></p>
+    </div>
+  </div>
+  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Casal">
 </section>
 
-<hr>
-
-<section id="temas">
-  <h2>Nossos Temas Principais</h2>
-
-  <h3>1. Nutrição Consciente</h3>
-  <img src="ComidasSaudaveis.jpg" class="image" alt="Alimentos saudáveis e coloridos">
-  <ul>
-    <li>Descubra receitas saudáveis e nutritivas que incentivam uma alimentação equilibrada.</li>
-    <li><strong>A Importância do Planejamento:</strong> Aprenda a planejar suas refeições com métodos práticos e dicas.</li>
-    <li><strong>Alimentos Funcionais e Superfoods:</strong> Explore ingredientes como spirulina, cúrcuma e chia.</li>
-  </ul>
-
-  <h3>2. Atividade Física</h3>
-   <img src="PessoaSeExercitandoAoArLivre.jpg" class="image" alt="Pessoa se exercitando ao ar livre">
-  <ul>
-    <li>Explore modalidades como yoga, pilates e treinos intensos com guias práticos.</li>
-    <li><strong>Encontre Seu Estilo:</strong> Encontre a atividade que combina com você.</li>
-    <li><strong>Dicas para Manter a Motivação:</strong> Técnicas e estratégias para criar um ambiente motivador.</li>
-  </ul>
-
-  <h3>3. Saúde Mental</h3>
-  <img src="PessoaMeditandoNaNatureza.jpg" class="image" alt="Pessoa meditando com serenidade">
-  <ul>
-    <li>Explore técnicas de relaxamento, meditação e estratégias para lidar com o estresse.</li>
-    <li><strong>Terapias e Práticas Alternativas:</strong> Como aromaterapia e acupuntura podem ajudar.</li>
-    <li><strong>Autoajuda e Crescimento Pessoal:</strong> Dicas de livros, podcasts e recursos transformadores.</li>
-  </ul>
-
-  <h3>4. Beleza Natural</h3>
-  <img src="MulherSorrindoComPeleSaudavel.jpg" class="image" alt="Mulher sorrindo com pele saudável">
-  <ul>
-    <li>Dicas de cuidados com a pele e cabelo usando ingredientes naturais.</li>
-    <li><strong>Rotinas de Beleza:</strong> Para diferentes tipos de pele, com saúde em primeiro lugar.</li>
-    <li><strong>O Poder da Alimentação na Beleza:</strong> Alimentos que promovem pele luminosa e cabelos fortes.</li>
-  </ul>
-
-  <h3>5. Vida Sustentável</h3>
-  <img src="PessoaSorrindoEmMeioANatureza.jpg" class="image" alt="Pessoa sorrindo em meio à natureza">
-  <ul>
-    <li>Como escolhas sustentáveis beneficiam sua saúde e o planeta.</li>
-    <li><strong>Dicas do Dia a Dia:</strong> Pequenas atitudes sustentáveis com grande impacto.</li>
-    <li><strong>Consumo Consciente:</strong> Escolha produtos que respeitam o meio ambiente.</li>
-  </ul>
+<section id="historia">
+  <h2 class="section-title">Coisas que eu amo em você 💗</h2>
+  <p style="text-align:center;max-width:700px;margin:0 auto 40px;">Não são apenas detalhes. São pequenos pedaços de você que fazem eu te amar todos os dias.</p>
+  <div class="timeline">
+    <div class="card"><strong>Seu sorriso</strong><br>que ilumina qualquer dia meu.</div>
+    <div class="card"><strong>Seu olhar</strong><br>que me acalma sem dizer nada.</div>
+    <div class="card"><strong>O jeito que você ri</strong><br>e faz tudo parecer mais leve.</div>
+    <div class="card"><strong>Quando você fica brava</strong><br>até sem motivo, e mesmo assim continua linda.</div>
+    <div class="card"><strong>Quando me chama</strong><br>de bebê, meu homem ou só de seu.</div>
+    <div class="card"><strong>Suas qualidades</strong><br>que me inspiram a ser melhor.</div>
+    <div class="card"><strong>Seus defeitos</strong><br>porque eles também fazem parte de quem você é.</div>
+    <div class="card"><strong>Seu narizinho e seu pezinho</strong><br>detalhes bobos que eu amo demais.</div>
+    <div class="card"><strong>Seu jeitinho tímido</strong><br>que me dá vontade de te proteger.</div>
+    <div class="card"><strong>Seu lado sensível</strong><br>que mostra o coração lindo que você tem.</div>
+  </div>
 </section>
 
-<hr>
+<section id="mensagens">
+  <h2 class="section-title">Promessas pra nós dois 🤍</h2>
+  <div class="slider">
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+    <div class="slide" id="slideText"></div>
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+  </div>
 
-<section id="dicas">
-  <h2>Dicas Práticas para o Seu Dia a Dia</h2>
-  <ul>
-    <li><strong>Comece o Dia com um Café da Manhã Nutritivo:</strong> Opte por fibras, proteínas e vitaminas.</li>
-    <li><strong>Momentos de Desconexão:</strong> Fique um tempo longe das telas e conecte-se consigo mesmo.</li>
-    <li><strong>Estabeleça Pequenas Metas de Exercícios:</strong> Ajustáveis e realistas para manter o foco.</li>
-    <li><strong>Aposte na Hidratação:</strong> Use apps para acompanhar sua ingestão de água.</li>
-    <li><strong>Crie um Espaço de Relaxamento em Casa:</strong> Um cantinho com plantas, luz suave e paz.</li>
-  </ul>
+  <h2 class="section-title" style="margin-top:80px;">Se você estiver triste, leia isso 🥺</h2>
+  <div style="text-align:center;">
+    <button onclick="gerarMensagem()">Clique aqui 🤍</button>
+    <div class="card" id="mensagemTriste" style="margin-top:25px;max-width:500px;margin-inline:auto;"></div>
+  </div>
 </section>
 
-<hr>
-
-<section id="depoimentos">
-  <h2>Depoimentos de Nossos Leitores</h2>
-  <p>“A implementação de hábitos saudáveis mudou minha vida. O conteúdo do site me inspira todos os dias a continuar focado no meu bem-estar. Estou mais consciente das minhas escolhas e isso faz toda a diferença.” — Ana L.</p>
-  <p>“Adorei as dicas de alimentação e o foco na saúde mental. Me ajudou a encontrar um equilíbrio que eu não sabia que precisava. Recomendo para todos que buscam qualidade de vida!” — Ricardo M.</p>
-</section>
-
-<hr>
-
-<section id="eventos">
-  <h2>Eventos e Workshops</h2>
-  <p>Participe de nossos eventos e workshops sobre saúde e bem-estar! Oferecemos palestras, aulas práticas e experiências imersivas para promover uma vida saudável. Fique atento à nossa agenda para não perder as próximas oportunidades.</p>
-</section>
-
-<hr>
-
-<section id="junte-se">
-  <h2>Junte-se a Nós!</h2>
-  <p>Nosso site é uma comunidade dedicada à promoção da saúde e bem-estar. Siga-nos nas redes sociais e inscreva-se em nossa newsletter para receber dicas exclusivas, conteúdos novos, receitas e muito mais!</p>
-  <p><strong>Sua jornada para uma vida plena e saudável começa aqui.</strong> Explore, descubra e transforme-se! Estamos ansiosos para acompanhá-lo nesta trajetória rumo ao bem-estar!</p>
+<section id="galeria">
+  <h2 class="section-title">Galeria de Momentos</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" />
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
+    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce" />
+  </div>
 </section>
 
 <footer>
-  <p>© 2025 Vida Saudável. Todos os direitos reservados.</p>
+  <p>Entre todas as possibilidades da vida, eu escolheria você de novo.</p>
+  <p style="margin-top:10px;">Feito com ❤️ especialmente para você</p>
 </footer>
+
+<audio id="musica" autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+  const inicio = new Date(2024, 11, 22, 22, 30, 0);
+  function atualizar() {
+    const agora = new Date();
+    const diff = agora - inicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+    document.getElementById('contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+  }
+  setInterval(atualizar, 1000); atualizar();
+
+  const promessas = [
+    'Prometo te escolher todos os dias',
+    'Prometo te apoiar nos dias difíceis',
+    'Prometo segurar sua mão sempre',
+    'Prometo te ajudar a realizar seus sonhos',
+    'Prometo nunca te machucar',
+    'Prometo que você será a única na minha vida para sempre',
+    'Prometo sempre te amar acima de tudo',
+    'Prometo te amar'
+  ];
+  let slideIndex = 0;
+  const slideEl = document.getElementById('slideText');
+  function mostrarSlide(){ slideEl.innerText = promessas[slideIndex]; }
+  function nextSlide(){ slideIndex = (slideIndex + 1) % promessas.length; mostrarSlide(); }
+  function prevSlide(){ slideIndex = (slideIndex - 1 + promessas.length) % promessas.length; mostrarSlide(); }
+  setInterval(nextSlide, 3000); mostrarSlide();
+
+  const mensagensTristes = [
+    'Você é amada, mais do que imagina.',
+    'Você é forte, mesmo quando acha que não é.',
+    'Você nunca está sozinha.',
+    'Seu coração é lindo.',
+    'Você faz o meu mundo melhor.',
+    'Tudo isso vai passar, eu estou com você.',
+    'Você é suficiente.',
+    'Você merece todo o amor do mundo.',
+    'Eu acredito em você.',
+    'Eu te amo, hoje e sempre.'
+  ];
+  function gerarMensagem(){
+    const i = Math.floor(Math.random() * mensagensTristes.length);
+    document.getElementById('mensagemTriste').innerText = mensagensTristes[i];
+  }
+</script>
 
 </body>
 </html>
